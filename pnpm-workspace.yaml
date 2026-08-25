@@ -1,0 +1,6 @@
+allowBuilds:
+  '@tailwindcss/oxide': true
+  '@whop/react': true
+onlyBuiltDependencies:
+  - "@tailwindcss/oxide"
+  - "@whop/react"

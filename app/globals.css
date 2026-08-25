@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@import "@whop/react/styles.css";
+
+:root {
+  color-scheme: light dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--gray-1);
+  color: var(--gray-12);
+}
+
+a {
+  color: inherit;
+}
