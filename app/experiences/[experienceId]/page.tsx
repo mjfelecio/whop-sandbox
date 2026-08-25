@@ -21,9 +21,7 @@ export default async function ExperiencePage({
       : [null, null];
 
   const expectedAppId = process.env.NEXT_PUBLIC_WHOP_APP_ID;
-  const appMatches = Boolean(
-    experience?.ok && expectedAppId && experience.appId === expectedAppId,
-  );
+  const appMatches = Boolean(experience?.ok && expectedAppId && experience.appId === expectedAppId);
   const allowed = Boolean(
     auth.ok && access?.ok && access.hasAccess && experience?.ok && appMatches,
   );
@@ -40,7 +38,7 @@ export default async function ExperiencePage({
             ? "The experience is not powered by the configured Whop App ID."
             : allowed
               ? "The authenticated user has access to this Whop experience."
-              : "Whop did not grant access to this experience."
+              : "Whop did not grant access to this experience.";
 
   console.info("[whop-context]", {
     route,
@@ -71,9 +69,7 @@ export default async function ExperiencePage({
         },
         {
           label: "Attached products",
-          value: experience?.ok
-            ? experience.productIds.join(", ") || "None"
-            : "Unavailable",
+          value: experience?.ok ? experience.productIds.join(", ") || "None" : "Unavailable",
         },
         {
           label: "Token source",
@@ -83,7 +79,7 @@ export default async function ExperiencePage({
           label: "Access result",
           value: access?.ok
             ? `${access.hasAccess} (${access.accessLevel})`
-            : access?.reason ?? "Not checked",
+            : (access?.reason ?? "Not checked"),
         },
       ]}
       title="Experience context"

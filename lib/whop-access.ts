@@ -62,12 +62,9 @@ export type WhopExperienceResult =
       message: string;
     };
 
-export async function getWhopExperience(
-  whopExperienceId: string,
-): Promise<WhopExperienceResult> {
+export async function getWhopExperience(whopExperienceId: string): Promise<WhopExperienceResult> {
   try {
-    const experience =
-      await getWhopClient().experiences.retrieve(whopExperienceId);
+    const experience = await getWhopClient().experiences.retrieve(whopExperienceId);
 
     return {
       ok: true,

@@ -1,5 +1,12 @@
-@import "tailwindcss";
-@import "@whop/react/styles.css";
+@layer theme, base, frosted-ui, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities);
+@import "@whop/react/styles.css" layer(frosted-ui);
+
+/* biome-ignore lint/suspicious/noUnknownAtRules: Tailwind loads the Whop theme plugin. */
+@config "../tailwind.config.ts";
 
 :root {
   color-scheme: light dark;

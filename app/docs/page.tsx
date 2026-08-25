@@ -29,19 +29,27 @@ export default function DocsPage() {
     <main className="mx-auto flex min-h-screen w-full max-w-3xl flex-col gap-6 p-6 md:p-10">
       <div className="flex items-center gap-3">
         <Badge color="amber">Escalation</Badge>
-        <Text color="gray" size="2">Only unresolved concerns</Text>
+        <Text color="gray" size="2">
+          Only unresolved concerns
+        </Text>
       </div>
 
       <div className="space-y-2">
-        <Heading as="h1" size="7">Concerns requiring a decision</Heading>
+        <Heading as="h1" size="7">
+          Concerns requiring a decision
+        </Heading>
         <Text color="gray">Keep this list short. Remove items once resolved.</Text>
       </div>
 
       <div className="space-y-3">
         {concerns.map((concern) => (
           <Card key={concern.title} size="2">
-            <Heading as="h2" size="4">{concern.title}</Heading>
-            <Text color="gray" size="2">{concern.detail}</Text>
+            <Heading as="h2" size="4">
+              {concern.title}
+            </Heading>
+            <Text color="gray" size="2">
+              {concern.detail}
+            </Text>
           </Card>
         ))}
       </div>

@@ -1,8 +1,8 @@
 import "server-only";
 
-import { getWhopClient, WhopConfigurationError } from "@/lib/whop-sdk";
 import { decodeJwt, decodeProtectedHeader } from "jose";
 import { headers } from "next/headers";
+import { getWhopClient, WhopConfigurationError } from "@/lib/whop-sdk";
 
 export type WhopAuthenticationResult =
   | {
@@ -53,8 +53,7 @@ function getLocalDevelopmentTokenClaims(
         payload.exp > now &&
         payload.exp - payload.iat <= 24 * 60 * 60,
     );
-    const validNotBefore =
-      typeof payload.nbf !== "number" || payload.nbf <= now + 60;
+    const validNotBefore = typeof payload.nbf !== "number" || payload.nbf <= now + 60;
 
     if (
       protectedHeader.alg !== "ES256" ||
@@ -101,7 +100,7 @@ export async function getAuthenticatedWhopUser(
     };
   }
 
-  let verified;
+  let verified: { userId: string; appId: string } | null;
 
   try {
     verified = await getWhopClient().verifyUserToken(currentHeaders, {

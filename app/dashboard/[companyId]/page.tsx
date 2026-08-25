@@ -11,13 +11,8 @@ export default async function DashboardPage({
   const route = `/dashboard/${companyId}`;
   const auth = await getAuthenticatedWhopUser();
   const validCompanyId = companyId.startsWith("biz_");
-  const access =
-    auth.ok && validCompanyId
-      ? await checkWhopAccess(auth.userId, companyId)
-      : null;
-  const allowed = Boolean(
-    auth.ok && access?.ok && access.accessLevel === "admin",
-  );
+  const access = auth.ok && validCompanyId ? await checkWhopAccess(auth.userId, companyId) : null;
+  const allowed = Boolean(auth.ok && access?.ok && access.accessLevel === "admin");
 
   const message = !validCompanyId
     ? "The route parameter is not a Whop company ID."
@@ -27,7 +22,7 @@ export default async function DashboardPage({
         ? access.message
         : allowed
           ? "The authenticated user is a team member of this Whop company."
-          : "Whop did not return admin access for this company."
+          : "Whop did not return admin access for this company.";
 
   console.info("[whop-context]", {
     route,
@@ -56,7 +51,7 @@ export default async function DashboardPage({
           label: "Access result",
           value: access?.ok
             ? `${access.hasAccess} (${access.accessLevel})`
-            : access?.reason ?? "Not checked",
+            : (access?.reason ?? "Not checked"),
         },
       ]}
       title="Dashboard context"

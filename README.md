@@ -12,7 +12,8 @@ submissions, database, webhooks, or payments.
    origin. Whop proxies that origin through the app-specific iframe domain.
 3. In Hosting, set the Experience View path to
    `/experiences/[experienceId]` and Dashboard View path to
-   `/dashboard/[companyId]`.
+   `/dashboard/[companyId]`. Enter these values explicitly; dashboard
+   placeholders are not saved configuration.
 4. Install the app into the test Whop company and approve the permissions needed
    to retrieve experiences and check user access.
 5. Run `pnpm dev`, open the app through Whop, and select the localhost environment
@@ -38,8 +39,13 @@ different generated-client line and does not expose the documented
 ## Checks
 
 ```bash
+pnpm lint
 pnpm typecheck
 pnpm build
 ```
+
+The styling and lint configuration follow Whop's official Next.js template:
+Tailwind and Frosted UI use explicit cascade layers, and Biome provides the
+project's lint and formatting baseline (`pnpm format`).
 
 Open `/docs` for the short list of unresolved concerns requiring a team decision.

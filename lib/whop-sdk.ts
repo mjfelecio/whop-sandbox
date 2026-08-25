@@ -9,7 +9,13 @@ export class WhopConfigurationError extends Error {
   }
 }
 
+let whopClient: Whop | undefined;
+
 export function getWhopClient(): Whop {
+  if (whopClient) {
+    return whopClient;
+  }
+
   const apiKey = process.env.WHOP_API_KEY;
   const appID = process.env.NEXT_PUBLIC_WHOP_APP_ID;
 
@@ -21,9 +27,11 @@ export function getWhopClient(): Whop {
     throw new WhopConfigurationError("NEXT_PUBLIC_WHOP_APP_ID");
   }
 
-  return new Whop({
+  whopClient = new Whop({
     apiKey,
     appID,
     baseURL: process.env.WHOP_API_BASE_URL,
   });
+
+  return whopClient;
 }
