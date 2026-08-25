@@ -12,8 +12,11 @@ importers:
         specifier: 0.3.2
         version: 0.3.2(@react-spectrum/provider@3.11.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(@types/react-dom@19.1.7(@types/react@19.1.11))(@types/react@19.1.11)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@whop/sdk':
-        specifier: 0.0.3
-        version: 0.0.3
+        specifier: 0.0.42
+        version: 0.0.42
+      jose:
+        specifier: 6.2.10
+        version: 6.2.10
       next:
         specifier: 16.3.2
         version: 16.3.2(@types/node@24.3.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -1432,8 +1435,8 @@ packages:
     peerDependencies:
       react: ^19.0.0
 
-  '@whop/sdk@0.0.3':
-    resolution: {integrity: sha512-dy/WKWbjMNg0Dh42eHKAofI9fdHqsi0EolGuvJHmpD05LZ6G6PLJEpiZt0f+Nq0wktzAe5f/mSzkmW5jdf19aA==}
+  '@whop/sdk@0.0.42':
+    resolution: {integrity: sha512-ZBtdGGIziRQa5WP9xk2qASPPhyBVKzS74IrHJ9hB8xKPwAKqY4Ca2XsA9QKjgXT7gNnGjKJADdBvcMGtnNG+JA==}
 
   aria-hidden@1.2.6:
     resolution: {integrity: sha512-ik3ZgC9dY/lYVVM++OISsaYDeg1tb0VtP5uL3ouh1koGOaUMDPpbFIei4JkFimWUFPn90sbMNMXQAIVOlnYKJA==}
@@ -3323,7 +3326,7 @@ snapshots:
       - '@types/react-dom'
       - react-dom
 
-  '@whop/sdk@0.0.3':
+  '@whop/sdk@0.0.42':
     dependencies:
       jose: 6.2.10
       standardwebhooks: 1.0.0

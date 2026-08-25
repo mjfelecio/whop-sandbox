@@ -3,14 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "whop-proxy --command 'next dev --turbopack'",
+    "dev": "whop-proxy --command \"next dev --turbopack\"",
     "build": "next build --webpack",
     "start": "next start",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@whop/react": "0.3.2",
-    "@whop/sdk": "0.0.3",
+    "@whop/sdk": "0.0.42",
+    "jose": "6.2.10",
     "next": "16.3.2",
     "react": "19.2.8",
     "react-dom": "19.2.8"
@@ -23,5 +24,6 @@
     "@whop-apps/dev-proxy": "0.0.1-canary.117",
     "tailwindcss": "4.1.13",
     "typescript": "5.9.2"
-  }
+  },
+  "packageManager": "pnpm@11.15.0+sha512.266f8957a30d2be6e9468e5e66bcdedd35a794175f71b067ba8504d686cce1d0c0f429b33c323c3c569ad4891e667574a49ff71d1b89a22cc66f13c65818c578"
 }
