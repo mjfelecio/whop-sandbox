@@ -5,7 +5,12 @@ const concerns = [
   {
     title: "Whop package maturity",
     detail:
-      "Whop's official Next.js template pins @whop/sdk 0.0.3, while npm labels an incompatible generated-client line as latest (1.x). Keep the documented app SDK pinned and confirm Whop's versioning direction before production.",
+      "This project pins the compatible app SDK at @whop/sdk 0.0.42. npm labels an incompatible generated-client line as latest (1.x), so confirm Whop's versioning direction before crossing that major-version boundary.",
+  },
+  {
+    title: "Local development token signing",
+    detail:
+      "Whop's localhost launcher currently issues isDev tokens with a key ID absent from its published production and sandbox JWKS documents. This sandbox uses a localhost-only development fallback; remove it once Whop publishes the development key or documents its JWKS endpoint.",
   },
   {
     title: "Environment and credentials",

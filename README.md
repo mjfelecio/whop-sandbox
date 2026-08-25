@@ -21,9 +21,18 @@ submissions, database, webhooks, or payments.
 The `dev` script wraps Next.js with Whop's documented development proxy so local
 requests receive the same iframe user token header used in production.
 
-This sandbox pins `@whop/sdk` to the version used by Whop's official Next.js
-template. Do not upgrade it based only on npm's `latest` tag: the current 1.x
-package is a different generated-client line and does not expose the documented
+Production and published Whop signing keys are verified through Whop's JWKS.
+Whop's localhost launcher currently sends `isDev` tokens with a key ID absent
+from both documented Whop JWKS endpoints. In development on a localhost host
+only, the sandbox therefore validates the token's algorithm, issuer, audience,
+subject, and lifetime before allowing the normal API-backed access check. This
+fallback is disabled in production and is reported as `development_claims` in
+the context viewer.
+
+This sandbox pins `@whop/sdk` to `0.0.42`, the last release in the app-SDK line.
+That release verifies iframe user tokens through Whop's rotating JWKS endpoint.
+Do not upgrade it based only on npm's `latest` tag: the current 1.x package is a
+different generated-client line and does not expose the documented
 `verifyUserToken` app helper.
 
 ## Checks
